@@ -1,0 +1,1 @@
+INSERT INTO Product (id, name, description, create_date) VALUES (10, 'Clean Architecture', 'Livro Arquitetura', '2022-06-20 00:00:00');
