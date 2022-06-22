@@ -6,7 +6,10 @@ import com.architecture.clean.entrypoint.controller.dto.ProductRequest
 import com.architecture.clean.entrypoint.controller.dto.ProductResponse
 import com.architecture.clean.usecases.*
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.util.UriBuilder
+import org.springframework.web.util.UriComponentsBuilder
 
 @RestController
 @RequestMapping("/products")
@@ -27,10 +30,11 @@ class ProductController(
     }
 
     @PostMapping
-    fun save(@RequestBody request: ProductRequest): ProductResponse {
+    fun save(@RequestBody request: ProductRequest, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<ProductResponse> {
         val product = mapperRequestToProduct.map(request);
         serviceSaveProduct.execute(product);
-        return mapperProductToResponse.map(product);
+        val uri = uriComponentsBuilder.path("/products/${product.id}").build().toUri()
+        return ResponseEntity.created(uri).body(mapperProductToResponse.map(product))
     }
 
     @GetMapping("/{id}")
@@ -40,10 +44,10 @@ class ProductController(
     }
 
     @PutMapping
-    fun update(@RequestBody request: ProductRequest): ProductResponse {
+    fun update(@RequestBody request: ProductRequest): ResponseEntity<ProductResponse> {
         val product = mapperRequestToProduct.map(request);
         serviceUpdateProduct.execute(product)
-        return mapperProductToResponse.map(product);
+        return ResponseEntity.ok(mapperProductToResponse.map(product));
     }
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
