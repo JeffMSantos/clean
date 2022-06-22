@@ -1,4 +1,4 @@
-package com.architecture.clean.entities
+package com.architecture.clean.drivers.repository.domain
 
 import java.time.LocalDateTime
 import javax.persistence.Entity
@@ -8,7 +8,6 @@ import javax.persistence.Id
 
 @Entity
 data class Product (
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
     var name: String,

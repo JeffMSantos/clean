@@ -1,4 +1,4 @@
-package com.architecture.clean.drivers
+package com.architecture.clean.drivers.repository.base
 
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.repository.NoRepositoryBean

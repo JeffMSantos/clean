@@ -1,26 +1,27 @@
 package com.architecture.clean.drivers.repository
 
-import com.architecture.clean.usecases.dto.ProductRequestModel
-import com.architecture.clean.usecases.dto.ProductResponseModel
-import com.architecture.clean.usecases.mapper.ProductToResponseMapper
-import com.architecture.clean.usecases.mapper.RequestToProductMapper
+import com.architecture.clean.adapters.controller.mapper.MapperProductToResponse
+import com.architecture.clean.adapters.controller.mapper.MapperRequestToProduct
+import com.architecture.clean.drivers.repository.domain.Product
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
+import java.util.*
 
 @Component
-class ProductDataBase(private val productToResponseMapper: ProductToResponseMapper, private val requestToProductMapper: RequestToProductMapper) {
+class ProductDataBase(private val productToResponseMapper: MapperProductToResponse, private val requestToProductMapper: MapperRequestToProduct) {
 
     @Autowired
-    private lateinit var repository: IProductRepository
+    private lateinit var repository: ProductRepository
 
-    fun findAll(): List<ProductResponseModel> {
-        val products = repository.findAll();
-        return products.map { p -> productToResponseMapper.map(p) }
+    fun findAll(): List<Product> {
+        return repository.findAll();
     }
 
-    fun save(request: ProductRequestModel): ProductResponseModel {
-        val product = requestToProductMapper.map(request);
-        repository.save(product);
-        return productToResponseMapper.map(product);
+    fun save(data: Product): Product {
+        return repository.save(data);
+    }
+
+    fun findById(id: Long?): Product {
+        return repository.findById(id!!).get();
     }
 }

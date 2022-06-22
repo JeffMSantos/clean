@@ -1,8 +1,8 @@
-package com.architecture.clean.usecases.dto
+package com.architecture.clean.adapters.controller.dto
 
 import java.time.LocalDateTime
 
-data class ProductResponseModel (
+data class ProductResponse (
     var id: Long? = null,
     var name: String,
     var description: String,
