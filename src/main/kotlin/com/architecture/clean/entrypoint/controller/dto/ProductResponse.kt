@@ -1,4 +1,4 @@
-package com.architecture.clean.adapters.controller.dto
+package com.architecture.clean.entrypoint.controller.dto
 
 import java.time.LocalDateTime
 

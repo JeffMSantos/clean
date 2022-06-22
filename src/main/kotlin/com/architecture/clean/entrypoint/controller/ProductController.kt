@@ -1,9 +1,9 @@
-package com.architecture.clean.adapters.controller
+package com.architecture.clean.entrypoint.controller
 
-import com.architecture.clean.adapters.controller.mapper.MapperProductToResponse
-import com.architecture.clean.adapters.controller.mapper.MapperRequestToProduct
-import com.architecture.clean.adapters.controller.dto.ProductRequest
-import com.architecture.clean.adapters.controller.dto.ProductResponse
+import com.architecture.clean.entrypoint.controller.mapper.MapperProductToResponse
+import com.architecture.clean.entrypoint.controller.mapper.MapperRequestToProduct
+import com.architecture.clean.entrypoint.controller.dto.ProductRequest
+import com.architecture.clean.entrypoint.controller.dto.ProductResponse
 import com.architecture.clean.usecases.ServiceFindByIdProduct
 import com.architecture.clean.usecases.ServiceListProduct
 import com.architecture.clean.usecases.ServiceSaveProduct

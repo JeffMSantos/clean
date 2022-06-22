@@ -1,7 +1,7 @@
-package com.architecture.clean.adapters.controller.mapper
+package com.architecture.clean.entrypoint.controller.mapper
 
 import com.architecture.clean.entities.ProductEntity
-import com.architecture.clean.adapters.controller.dto.ProductRequest
+import com.architecture.clean.entrypoint.controller.dto.ProductRequest
 import org.springframework.stereotype.Component
 
 @Component

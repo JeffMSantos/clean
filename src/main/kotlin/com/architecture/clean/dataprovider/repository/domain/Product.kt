@@ -1,4 +1,4 @@
-package com.architecture.clean.drivers.repository.domain
+package com.architecture.clean.dataprovider.repository.domain
 
 import java.time.LocalDateTime
 import javax.persistence.Entity

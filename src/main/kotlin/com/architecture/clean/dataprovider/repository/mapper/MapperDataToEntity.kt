@@ -1,6 +1,6 @@
-package com.architecture.clean.drivers.repository.mapper
+package com.architecture.clean.dataprovider.repository.mapper
 
-import com.architecture.clean.drivers.repository.domain.Product
+import com.architecture.clean.dataprovider.repository.domain.Product
 import com.architecture.clean.entities.ProductEntity
 import org.springframework.stereotype.Component
 

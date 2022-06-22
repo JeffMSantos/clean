@@ -1,11 +1,10 @@
-package com.architecture.clean.drivers.repository
+package com.architecture.clean.dataprovider.repository.product
 
-import com.architecture.clean.adapters.controller.mapper.MapperProductToResponse
-import com.architecture.clean.adapters.controller.mapper.MapperRequestToProduct
-import com.architecture.clean.drivers.repository.domain.Product
+import com.architecture.clean.entrypoint.controller.mapper.MapperProductToResponse
+import com.architecture.clean.entrypoint.controller.mapper.MapperRequestToProduct
+import com.architecture.clean.dataprovider.repository.domain.Product
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
-import java.util.*
 
 @Component
 class ProductDataBase(private val productToResponseMapper: MapperProductToResponse, private val requestToProductMapper: MapperRequestToProduct) {
