@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service
 @Service
 class ServiceFindByIdProduct(private val providerFindByIdProduct: ProviderFindByIdProduct) {
 
-    fun execute(id: Long): ProductEntity{
+    fun execute(id: Long): ProductEntity {
         return providerFindByIdProduct.findById(id);
     }
 }

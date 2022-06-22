@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 @Component
 class MapperDataToEntity {
 
-    fun map(t: Product): ProductEntity{
+    fun map(t: Product): ProductEntity {
         return ProductEntity(
             id = t.id,
             name = t.name,

@@ -23,4 +23,8 @@ class ProductDataBase(private val productToResponseMapper: MapperProductToRespon
     fun findById(id: Long?): Product {
         return repository.findById(id!!).get();
     }
+
+    fun delete(id: Long) {
+        repository.deleteById(id)
+    }
 }

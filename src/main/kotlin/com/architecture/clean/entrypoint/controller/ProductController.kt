@@ -4,17 +4,9 @@ import com.architecture.clean.entrypoint.controller.mapper.MapperProductToRespon
 import com.architecture.clean.entrypoint.controller.mapper.MapperRequestToProduct
 import com.architecture.clean.entrypoint.controller.dto.ProductRequest
 import com.architecture.clean.entrypoint.controller.dto.ProductResponse
-import com.architecture.clean.usecases.ServiceFindByIdProduct
-import com.architecture.clean.usecases.ServiceListProduct
-import com.architecture.clean.usecases.ServiceSaveProduct
-import com.architecture.clean.usecases.ServiceUpdateProduct
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import com.architecture.clean.usecases.*
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/products")
@@ -23,6 +15,7 @@ class ProductController(
     private val serviceListProduct: ServiceListProduct,
     private val serviceFindByIdProduct: ServiceFindByIdProduct,
     private val serviceUpdateProduct: ServiceUpdateProduct,
+    private val serviceDeleteProduct: ServiceDeleteProduct,
     private val mapperProductToResponse: MapperProductToResponse,
     private val mapperRequestToProduct: MapperRequestToProduct
 ) {
@@ -51,5 +44,10 @@ class ProductController(
         val product = mapperRequestToProduct.map(request);
         serviceUpdateProduct.execute(product)
         return mapperProductToResponse.map(product);
+    }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun delete(@PathVariable id: Long) {
+        serviceDeleteProduct.execute(id)
     }
 }

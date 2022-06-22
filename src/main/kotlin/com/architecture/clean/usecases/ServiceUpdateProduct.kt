@@ -12,6 +12,7 @@ class ServiceUpdateProduct(
     fun execute(entity: ProductEntity): ProductEntity {
 
         val product = providerFindByIdProduct.findById(entity.id)
+
         product.name = entity.name
         product.description = entity.description
 
